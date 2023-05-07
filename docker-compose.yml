@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  pgdb:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres  
+    volumes:
+      - .dbdata:/var/lib/postgresql
+
+  myscript:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./bots.py:/app/bots.py
+    command: ["python", "/app/bots.py"]
+    depends_on:
+      - pgdb
+
+  
+  
+   
