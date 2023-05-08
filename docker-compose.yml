@@ -20,6 +20,14 @@ services:
     depends_on:
       - pgdb
 
+  queue:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: 'python producer.py && python consumer.py'
+    depends_on:
+      - pgdb
+
   
   
    

@@ -4,6 +4,7 @@ from selenium.webdriver.common.keys import Keys
 import psycopg2
 from dotenv import load_dotenv
 import os
+from producer import publish
 
 load_dotenv()
 
@@ -75,7 +76,8 @@ class BaseBot:
                     'image_url': image_url
                 })
                 print('....................................')
-                
+
+        self.driver.close()      
         
 
     def store_product(self, asin, title, price, rating, image_url):
@@ -99,17 +101,17 @@ class BaseBot:
                 print(f'updating product {product[0]} ', {'description': description})
                 print('....................................')
         
-        
+        self.driver.close()
     
 # main program
 if __name__ == '__main__':
     try:
-        bot = BaseBot()
-        keywords = ['laptop', 'smartphone', 'book', 'toys', 'clothes']
+        keywords = ['toys','clothes']
         for keyword in keywords:
+            bot = BaseBot()
             bot.search(keyword)
-            bot.update()
-        bot.driver.close()
+            publish()
+
     except Exception as e:
         print(str(e))
     
