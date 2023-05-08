@@ -1,7 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
 import psycopg2
 from dotenv import load_dotenv
 import os
@@ -19,9 +18,7 @@ db_port = os.environ.get('DBPORT')
 # base bot class having product search method, store_product method, and update product method
 class BaseBot:
     def __init__(self):
-        options = Options()
-        options.add_argument("--headless")
-        self.driver = webdriver.Firefox(options=options)
+        self.driver = webdriver.Chrome()
         self.conn = psycopg2.connect(host=db_host, database=db_name, user=db_user, password=db_pass,port=db_port)
         self.cur = self.conn.cursor()
         table_name = 'products'
@@ -51,6 +48,7 @@ class BaseBot:
             
     def search(self, keyword):
         print('searching', keyword)
+        print('..........')
         self.driver.get("https://www.amazon.com")
         search_box = self.driver.find_element(By.CSS_SELECTOR, '[name="field-keywords"]')
         search_box.send_keys(keyword)
@@ -76,6 +74,7 @@ class BaseBot:
                     'rating': rating,
                     'image_url': image_url
                 })
+                print('....................................')
                 
         
 
@@ -88,15 +87,17 @@ class BaseBot:
         products = self.cur.fetchall()
         for product in products:
             try:
-                self.driver.get(f"https://www.amazon.com/dp/{product[1]}")
-                if product[1]:
-                    description = self.driver.find_element(By.XPATH,'//[@id="productDescription"][5]/p/span')
-                    print('description',description)
+                self.driver.get(f"https://www.amazon.com/dp/{product[1]}")  
+                description_div = self.driver.find_element(By.ID,'feature-bullets')
+                description_li = description_div.find_elements(By.TAG_NAME,'li')
+                description = ''.join(i.find_element(By.TAG_NAME,'span').text for i in description_li)
                 self.cur.execute("UPDATE products SET description=%s, scraped=true WHERE id=%s", (description, product[0]))
                 self.conn.commit()
             except Exception as e:
                 pass
-                
+            else:
+                print(f'updating product {product[0]} ', {'description': description})
+                print('....................................')
         
         
     
