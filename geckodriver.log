@@ -1,0 +1,43 @@
+1683489496735	geckodriver	INFO	Listening on 127.0.0.1:64811
+1683489499820	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "648 ... 2" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\nk99t\\AppData\\Local\\Temp\\rust_mozprofilekyXgTM"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683489503982	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683489503997	Marionette	INFO	Listening on port 57552
+Read port: 57552
+WebDriver BiDi listening on ws://127.0.0.1:64812
+1683489505079	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 760))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.sys.mjs", 414))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\nk99t\\AppData\\Local\\Temp\\rust_mozprofilekyXgTM\\search.json.mozlz4", (void 0)))
+console.error: ({})
+1683489822574	geckodriver	INFO	Listening on 127.0.0.1:62904
+1683489825614	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "629 ... 5" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\nk99t\\AppData\\Local\\Temp\\rust_mozprofileHXuEV6"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683489828460	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683489828468	Marionette	INFO	Listening on port 62915
+Read port: 62915
+WebDriver BiDi listening on ws://127.0.0.1:62905
+1683489829324	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: Region.sys.mjs: "Error fetching region" (new AbortError("The operation was aborted. ", (void 0), 760))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.sys.mjs", 414))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\nk99t\\AppData\\Local\\Temp\\rust_mozprofileHXuEV6\\search.json.mozlz4", (void 0)))
+console.error: ({})
+1683489885700	geckodriver	INFO	Listening on 127.0.0.1:50840
+1683489888755	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "508 ... 1" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\nk99t\\AppData\\Local\\Temp\\rust_mozprofileWqD6PM"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1683489892031	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1683489892041	Marionette	INFO	Listening on port 50848
+Read port: 50848
+WebDriver BiDi listening on ws://127.0.0.1:50841
+1683489893058	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
