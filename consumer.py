@@ -1,6 +1,6 @@
 import pika
-from bots import BaseBot
-connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost',heartbeat=5000))
+from baseBot import BaseBot
+connection = pika.BlockingConnection(pika.URLParameters('amqps://nnfglkbu:mTd4zSMjdSg3YPUDkK9gO2TQXY1DONVM@armadillo.rmq.cloudamqp.com/nnfglkbu'))
 channel = connection.channel()
 
 channel.queue_declare(queue='update_queue')

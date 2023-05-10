@@ -6,27 +6,25 @@ services:
     environment:
       POSTGRES_DB: postgres
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres  
+      POSTGRES_PASSWORD: postgres 
+    ports:
+      - 5432:5432 
     volumes:
       - .dbdata:/var/lib/postgresql
 
-  myscript:
+  bot1:
     build:
       context: .
       dockerfile: Dockerfile
-    volumes:
-      - ./bots.py:/app/bots.py
-    command: ["python", "/app/bots.py"]
-    depends_on:
-      - pgdb
+    command: ["python", "bots.py"]
+             
+  bot2:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "consumer.py"]
 
-  queue:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: 'python producer.py && python consumer.py'
-    depends_on:
-      - pgdb
+
 
   
   
