@@ -1,1 +1,2 @@
 -> for run this project run command 'docker-compose up -d --build' and show the console output through bot1 container console and bot2 container console. after complete the process container will be stopped.
+-> it's scrapping project. Scrape product data from amazon.com using python selenium
